@@ -1,0 +1,264 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Internship Finder - Home</title>
+    <link
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="./stylesFolders/styles.css" />
+  </head>
+  <body>
+    <header>
+      <div class="headers">
+        <div class="header-content">
+          <div class="header-left">
+            <div class="logo">
+              <div class="logo-icon">
+                <i class="fas fa-handshake"></i>
+              </div>
+              <div class="logo-text">
+                <div class="logo-main">InternConnect</div>
+              </div>
+            </div>
+            <div class="search-container">
+              <div class="search-box">
+                <a href="internships.html">
+                  <i class="fas fa-search search-icon"></i>
+                </a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <nav>
+        <a href="index.html">
+          <div class="nav-home-icon">
+            <i class="fas fa-handshake"></i>
+          </div>
+        </a>
+        <a href="internships.html">Internships</a>
+        <a href="about.html">About</a>
+        <a href="contact.html">Contact Us</a>
+      </nav>
+      <button id="theme-toggle-btn" class="theme-toggle" onclick="toggleTheme()" aria-label="Toggle theme" title="Switch to Dark Mode">
+        <i class="fas fa-moon"></i>
+      </button>
+
+      <div class="mobile-menu" onclick="toggleMobileMenu()">
+        <span></span>
+        <span></span>
+        <span></span>
+      </div>
+      <div class="mobile-nav" id="mobileNav">
+        <a href="index.html">
+          <div class="nav-home-icon mobile">
+            <i class="fas fa-handshake"></i>
+          </div>
+          Home
+        </a>
+        <a href="internships.html">Internships</a>
+        <a href="contact.html">Contact Us</a>
+        <a href="about.html">About</a>
+      </div>
+    </header>
+
+    <section class="hero">
+      <div class="hero-sub">
+        <div class="page-titles">
+          <h1>
+            Launch Your Career with <span class="highlight">InternConnect</span>
+            <span class="subtitle">in Bahir Dar</span>
+          </h1>
+        </div>
+
+        <p class="hero-description">
+          Ethiopia's premier platform connecting ambitious students with
+          transformative internship opportunities.
+          <span class="hero-subtext">
+            Gain real-world experience at top companies in Bahir Dar and beyond.
+          </span>
+        </p>
+
+        <div class="hero-cta">
+          <a href="internships.html" class="hero-btn">
+            <i class="fas fa-search"></i> Browse Internships
+          </a>
+          <a href="about.html" class="hero-btn secondary">
+            <i class="fas fa-info-circle"></i> Learn How It Works
+          </a>
+        </div>
+      </div>
+    </section>
+
+    <section class="featured-partner-section" id="home">
+      <div class="container">
+        <div class="featured-hero-content">
+          <div class="featured-hero-text">
+            <div class="hero-badge">
+              <h1 class="featured-main-title">
+                <span class="featured-label">Featured Partner</span>
+                Bahir Dar Incubation Center
+              </h1>
+              <p class="featured-subtitle typewriter-text">
+                We're proud to showcase our exceptional partner, Bahir Dar
+                Incubation Center, which provides outstanding internship
+                opportunities for students.
+              </p>
+
+              <div class="content-cards-container">
+                <div class="content-card left-card enhanced-card">
+                  <h3 class="content-card-title gradient-text">
+                    <i class="fas fa-briefcase content-icon"></i>
+                    Explore Internship Experience With
+                  </h3>
+                  <h4 class="content-card-subtitle">
+                    <i class="fas fa-check-circle verified-icon pulsing-icon"></i>
+                    Trusted Partners
+                  </h4>
+                  <p class="content-card-description fade-in-text">
+                    Kickstart your career by connecting with this top-tier
+                    organization offering verified internship programs. Gain
+                    hands-on experience, build your professional network, and
+                    launch your journey with confidence—partner with mentors who
+                    invest in your growth.
+                  </p>
+                </div>
+
+                <div class="content-card right-card enhanced-card">
+                  <h3 class="content-card-title gradient-text">
+                    <i class="fas fa-star content-icon"></i>
+                    Discover Exceptional Opportunities With
+                  </h3>
+                  <h4 class="content-card-subtitle">
+                    <i class="fas fa-check-circle verified-icon pulsing-icon"></i>
+                    Verified Programs
+                  </h4>
+                  <p class="content-card-description fade-in-text">
+                    A leading innovation hub dedicated to nurturing the next
+                    generation of entrepreneurs and professionals. Gain
+                    exclusive access to BIC's carefully designed programs, where
+                    every opportunity is personally vetted for quality and
+                    impact.
+                  </p>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="featured-hero-image">
+            <div class="image-wrapper enhanced-wrapper">
+              <img
+                src="./Images/startup.jpg"
+                alt="Bahir Dar Incubation Center"
+                class="partner-image enhanced-image"
+              />
+            </div>
+            <div class="cta-section">
+              <a href="BIC.html" class="learn-more-btn enhanced-btn">
+                <span>Learn More</span>
+                <i class="fas fa-arrow-right"></i>
+              </a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <footer class="footer">
+      <div class="footer-all">
+        <div class="footer-top">
+          <h3>Internship Opportunities</h3>
+          <p>
+            Discover your perfect internship match across various fields and
+            leading companies in Ethiopia
+          </p>
+        </div>
+
+        <div class="footer-middle">
+          <div class="link-1">
+            <h3>IT & Technology</h3>
+            <ul>
+              <li><a href="#">Website Development</a></li>
+              <li><a href="#">Mobile App Development</a></li>
+              <li><a href="#">Software Engineering</a></li>
+              <li><a href="#">UI/UX Design</a></li>
+              <li><a href="#">System Management</a></li>
+              <li><a href="#">Network Administration</a></li>
+              <li><a href="#">Cybersecurity</a></li>
+              <li><a href="#">Database Management</a></li>
+            </ul>
+          </div>
+
+          <div class="link-2">
+            <h3>Engineering</h3>
+            <ul>
+              <li><a href="#">Water & Resource Engineering</a></li>
+              <li><a href="#">Power Electrical Engineering</a></li>
+              <li><a href="#">Electrical Engineering</a></li>
+              <li><a href="#">Civil Engineering</a></li>
+              <li><a href="#">Hydraulic Engineering</a></li>
+              <li><a href="#">Mechanical Engineering</a></li>
+              <li><a href="#">Computer Engineering</a></li>
+              <li><a href="#">Chemical Engineering</a></li>
+              <li><a href="#">Food Engineering</a></li>
+              <li><a href="#">Automotive Engineering</a></li>
+              <li><a href="#">ElectroMechanical Engineering</a></li>
+            </ul>
+          </div>
+        </div>
+
+        <div class="footer-bottom">
+          <div class="footer-above">
+            <h4>InternConnect</h4>
+            <p>
+              Connecting Ethiopian students with valuable internship
+              opportunities across Bahir Dar and beyond.
+            </p>
+            <div class="social-icons">
+              <a href="#" aria-label="Facebook">
+                <i class="fab fa-facebook"></i>
+              </a>
+              <a href="#" aria-label="Twitter">
+                <i class="fab fa-twitter"></i>
+              </a>
+              <a href="#" aria-label="LinkedIn">
+                <i class="fab fa-linkedin"></i>
+              </a>
+              <a href="#" aria-label="Instagram">
+                <i class="fab fa-instagram"></i>
+              </a>
+            </div>
+          </div>
+
+          <div class="footer-below">
+            <div class="copyright">
+              <p>&copy; 2025 InternConnect. All rights reserved.</p>
+            </div>
+            <div class="footer-terms">
+              <ul>
+                <li><a href="terms.html">Terms of Service</a></li>
+                <li><a href="privacy-policy.html">Privacy Policy</a></li>
+                <li><a href="cookies-policy.html">Cookie Policy</a></li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </div>
+    </footer>
+
+    <div id="internshipModal" class="modal">
+      <div class="modal-backdrop" onclick="closeInternshipModal()"></div>
+      <div class="modal-content">
+        <button class="modal-close" onclick="closeInternshipModal()">
+          <i class="fas fa-times"></i>
+        </button>
+        <div id="modalContent"></div>
+      </div>
+    </div>
+
+    <script src="scriptsFolder/script.js"></script>
+  </body>
+</html>

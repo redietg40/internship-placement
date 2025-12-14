@@ -1,0 +1,324 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>API Test - InternConnect</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
+            background: #f5f5f5;
+        }
+        .container {
+            background: white;
+            border-radius: 8px;
+            padding: 30px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+        }
+        h1 {
+            color: #333;
+            text-align: center;
+            margin-bottom: 30px;
+        }
+        .test-section {
+            margin: 20px 0;
+            padding: 20px;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+        }
+        .test-section h3 {
+            margin-top: 0;
+            color: #007cba;
+        }
+        button {
+            background: #007cba;
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            border-radius: 5px;
+            cursor: pointer;
+            margin: 5px;
+        }
+        button:hover {
+            background: #005a87;
+        }
+        .result {
+            background: #f8f9fa;
+            padding: 15px;
+            margin: 10px 0;
+            border-radius: 5px;
+            border-left: 4px solid #007cba;
+            white-space: pre-wrap;
+            font-family: monospace;
+            max-height: 300px;
+            overflow-y: auto;
+        }
+        .success {
+            border-left-color: #28a745;
+            background: #d4edda;
+        }
+        .error {
+            border-left-color: #dc3545;
+            background: #f8d7da;
+        }
+        .warning {
+            border-left-color: #ffc107;
+            background: #fff3cd;
+        }
+        .instructions {
+            background: #e7f3ff;
+            padding: 20px;
+            border-radius: 5px;
+            margin-bottom: 30px;
+            border-left: 4px solid #007cba;
+        }
+        .instructions h3 {
+            margin-top: 0;
+            color: #007cba;
+        }
+        .instructions ul {
+            margin: 10px 0;
+            padding-left: 20px;
+        }
+        .instructions li {
+            margin: 5px 0;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>🔧 InternConnect API Test Page</h1>
+        
+        <div class="instructions">
+            <h3>📋 Before Testing</h3>
+            <p><strong>Important:</strong> Make sure you're accessing this page through XAMPP Apache, not Live Server!</p>
+            <ul>
+                <li>✅ XAMPP Apache and MySQL should be running</li>
+                <li>✅ Access via: <code>http://localhost/InternConnectPHP2/test_api.html</code></li>
+                <li>❌ Don't use: <code>127.0.0.1:5501</code> (Live Server)</li>
+                <li>✅ Database should be set up (run <code>create-database.php</code> first)</li>
+            </ul>
+        </div>
+
+        <div class="test-section">
+            <h3>1. Test Application Processing Endpoint</h3>
+            <p>Test the main application submission endpoint with a GET request.</p>
+            <button onclick="testProcessApplicationGET()">Test GET Request</button>
+            <button onclick="testProcessApplicationPOST()">Test POST Request</button>
+            <div id="process-result" class="result" style="display: none;"></div>
+        </div>
+
+        <div class="test-section">
+            <h3>2. Test Application Status Update Endpoint</h3>
+            <p>Test the status update endpoint.</p>
+            <button onclick="testUpdateStatusGET()">Test GET Request</button>
+            <button onclick="testUpdateStatusPOST()">Test POST Request</button>
+            <div id="update-result" class="result" style="display: none;"></div>
+        </div>
+
+        <div class="test-section">
+            <h3>3. Test Get Applications Endpoint</h3>
+            <p>Test retrieving applications from the database.</p>
+            <button onclick="testGetApplications()">Test GET Applications</button>
+            <div id="get-result" class="result" style="display: none;"></div>
+        </div>
+
+        <div class="test-section">
+            <h3>4. Test Database Connection</h3>
+            <p>Test if the database setup is working correctly.</p>
+            <button onclick="testDatabaseSetup()">Test Database Setup</button>
+            <div id="db-result" class="result" style="display: none;"></div>
+        </div>
+
+        <div class="test-section">
+            <h3>5. Quick Links</h3>
+            <p>Useful links for testing and setup:</p>
+            <button onclick="window.open('create-database.php', '_blank')">Setup Database</button>
+            <button onclick="window.open('profile.html', '_blank')">Application Form</button>
+            <button onclick="window.open('get_applications.php', '_blank')">View Applications</button>
+        </div>
+    </div>
+
+    <script>
+        const API_BASE_URL = "http://localhost/InternConnectPHP2";
+        
+        function showResult(elementId, content, type = 'info') {
+            const element = document.getElementById(elementId);
+            element.style.display = 'block';
+            element.className = `result ${type}`;
+            element.textContent = content;
+        }
+
+        async function testProcessApplicationGET() {
+            showResult('process-result', 'Testing GET request...', 'info');
+            
+            try {
+                const response = await fetch(`${API_BASE_URL}/process_application.php`);
+                const responseText = await response.text();
+                
+                let result;
+                try {
+                    result = JSON.parse(responseText);
+                    showResult('process-result', `✅ GET Request Successful!\n\nStatus: ${response.status}\nResponse:\n${JSON.stringify(result, null, 2)}`, 'success');
+                } catch (parseError) {
+                    if (responseText.includes('<?php')) {
+                        showResult('process-result', `❌ Server returned PHP code instead of executing it!\n\nThis means you're not accessing through Apache.\n\nUse: http://localhost/InternConnectPHP2/\nNot: 127.0.0.1:5501\n\nRaw response:\n${responseText.substring(0, 500)}`, 'error');
+                    } else {
+                        showResult('process-result', `❌ JSON Parse Error\n\nStatus: ${response.status}\nRaw response:\n${responseText.substring(0, 500)}`, 'error');
+                    }
+                }
+            } catch (error) {
+                showResult('process-result', `❌ Network Error\n\n${error.message}\n\nMake sure XAMPP Apache is running!`, 'error');
+            }
+        }
+
+        async function testProcessApplicationPOST() {
+            showResult('process-result', 'Testing POST request...', 'info');
+            
+            const testData = {
+                fullName: "Test User",
+                email: "test@example.com",
+                phone: "1234567890",
+                university: "Test University",
+                program: "computer-science",
+                year: "3",
+                gpa: "3.5",
+                portfolio: "https://github.com/testuser",
+                programmingLanguages: "JavaScript, Python, Java, C++",
+                technologies: "React, Node.js, Express, MongoDB",
+                motivation: "I am passionate about technology and innovation. I want to contribute to meaningful projects and learn from experienced developers in a real-world environment. This internship would provide me with valuable hands-on experience that will help shape my career in technology.",
+                experience: "I have worked on several web development projects using modern frameworks and have experience with database design and API development. I've also contributed to open source projects and have a strong understanding of software development best practices."
+            };
+            
+            try {
+                const response = await fetch(`${API_BASE_URL}/process_application.php`, {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json',
+                    },
+                    body: JSON.stringify(testData)
+                });
+                
+                const responseText = await response.text();
+                
+                let result;
+                try {
+                    result = JSON.parse(responseText);
+                    if (result.success) {
+                        showResult('process-result', `✅ POST Request Successful!\n\nStatus: ${response.status}\nResponse:\n${JSON.stringify(result, null, 2)}`, 'success');
+                    } else {
+                        showResult('process-result', `⚠️ POST Request Failed (Expected)\n\nStatus: ${response.status}\nResponse:\n${JSON.stringify(result, null, 2)}\n\nThis might be expected if the email already exists.`, 'warning');
+                    }
+                } catch (parseError) {
+                    if (responseText.includes('<?php')) {
+                        showResult('process-result', `❌ Server returned PHP code instead of executing it!\n\nUse: http://localhost/InternConnectPHP2/\nNot: 127.0.0.1:5501`, 'error');
+                    } else {
+                        showResult('process-result', `❌ JSON Parse Error\n\nStatus: ${response.status}\nRaw response:\n${responseText.substring(0, 500)}`, 'error');
+                    }
+                }
+            } catch (error) {
+                showResult('process-result', `❌ Network Error\n\n${error.message}`, 'error');
+            }
+        }
+
+        async function testUpdateStatusGET() {
+            showResult('update-result', 'Testing GET request...', 'info');
+            
+            try {
+                const response = await fetch(`${API_BASE_URL}/update_application_status.php`);
+                const responseText = await response.text();
+                
+                let result;
+                try {
+                    result = JSON.parse(responseText);
+                    showResult('update-result', `✅ GET Request Successful!\n\nStatus: ${response.status}\nResponse:\n${JSON.stringify(result, null, 2)}`, 'success');
+                } catch (parseError) {
+                    showResult('update-result', `❌ JSON Parse Error\n\nStatus: ${response.status}\nRaw response:\n${responseText.substring(0, 500)}`, 'error');
+                }
+            } catch (error) {
+                showResult('update-result', `❌ Network Error\n\n${error.message}`, 'error');
+            }
+        }
+
+        async function testUpdateStatusPOST() {
+            showResult('update-result', 'Testing POST request...', 'info');
+            
+            const testData = {
+                id: 1,
+                status: "reviewed"
+            };
+            
+            try {
+                const response = await fetch(`${API_BASE_URL}/update_application_status.php`, {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json',
+                    },
+                    body: JSON.stringify(testData)
+                });
+                
+                const responseText = await response.text();
+                
+                let result;
+                try {
+                    result = JSON.parse(responseText);
+                    if (result.success) {
+                        showResult('update-result', `✅ POST Request Successful!\n\nStatus: ${response.status}\nResponse:\n${JSON.stringify(result, null, 2)}`, 'success');
+                    } else {
+                        showResult('update-result', `⚠️ POST Request Response\n\nStatus: ${response.status}\nResponse:\n${JSON.stringify(result, null, 2)}\n\nThis might be expected if no application with ID 1 exists.`, 'warning');
+                    }
+                } catch (parseError) {
+                    showResult('update-result', `❌ JSON Parse Error\n\nStatus: ${response.status}\nRaw response:\n${responseText.substring(0, 500)}`, 'error');
+                }
+            } catch (error) {
+                showResult('update-result', `❌ Network Error\n\n${error.message}`, 'error');
+            }
+        }
+
+        async function testGetApplications() {
+            showResult('get-result', 'Testing GET applications...', 'info');
+            
+            try {
+                const response = await fetch(`${API_BASE_URL}/get_applications.php`);
+                const responseText = await response.text();
+                
+                let result;
+                try {
+                    result = JSON.parse(responseText);
+                    if (result.success) {
+                        showResult('get-result', `✅ GET Applications Successful!\n\nStatus: ${response.status}\nTotal Applications: ${result.pagination.total_records}\nResponse:\n${JSON.stringify(result, null, 2)}`, 'success');
+                    } else {
+                        showResult('get-result', `⚠️ GET Applications Response\n\nStatus: ${response.status}\nResponse:\n${JSON.stringify(result, null, 2)}`, 'warning');
+                    }
+                } catch (parseError) {
+                    showResult('get-result', `❌ JSON Parse Error\n\nStatus: ${response.status}\nRaw response:\n${responseText.substring(0, 500)}`, 'error');
+                }
+            } catch (error) {
+                showResult('get-result', `❌ Network Error\n\n${error.message}`, 'error');
+            }
+        }
+
+        async function testDatabaseSetup() {
+            showResult('db-result', 'Testing database setup...', 'info');
+            
+            try {
+                const response = await fetch(`${API_BASE_URL}/create-database.php`);
+                const responseText = await response.text();
+                
+                if (responseText.includes('Database connection successful')) {
+                    showResult('db-result', `✅ Database Setup Working!\n\nResponse contains success message.`, 'success');
+                } else if (responseText.includes('Database connection failed')) {
+                    showResult('db-result', `❌ Database Connection Failed\n\nCheck your XAMPP MySQL service and database credentials.`, 'error');
+                } else {
+                    showResult('db-result', `⚠️ Unexpected Response\n\nThis might be normal if the page shows HTML instead of JSON.`, 'warning');
+                }
+            } catch (error) {
+                showResult('db-result', `❌ Network Error\n\n${error.message}`, 'error');
+            }
+        }
+    </script>
+</body>
+</html>

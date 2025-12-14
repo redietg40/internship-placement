@@ -1,0 +1,119 @@
+/* Clean consolidated stylesheet for InternConnect
+   Focus: header, hamburger menu, hero and featured partner (.heros)
+   Mobile-first with breakpoints to improve responsiveness
+*/
+
+@import url("https://fonts.googleapis.com/css2?family=Open+Sans:wght@300;400;600,700&display=swap");
+
+:root{
+  --primary-blue:#3a5f8d;
+  --accent-orange:#ff6b35;
+  --light-blue:#e8f0ff;
+  --white:#ffffff;
+  --text-dark:#222222;
+  --text-muted:#6b7280;
+  --border:#e6e9ee;
+  --max-width:1200px;
+}
+
+*{box-sizing:border-box}
+html,body{height:100%}
+body{
+  font-family: "Open Sans", sans-serif;
+  color:var(--text-dark);
+  background:var(--light-blue);
+  line-height:1.45;
+  -webkit-font-smoothing:antialiased;
+  overflow-x:hidden;
+}
+
+.container{max-width:var(--max-width);margin:0 auto;padding:0 20px}
+
+/* Header */
+header{background:var(--white);padding:12px 18px;position:sticky;top:0;z-index:999;border-bottom:1px solid var(--border)}
+.header-content{display:flex;align-items:center;justify-content:space-between;gap:14px}
+.logo{display:flex;align-items:center;gap:12px}
+.logo .logo-icon{width:40px;height:40px;border-radius:50%;display:flex;align-items:center;justify-content:center;background:var(--primary-blue);color:#fff}
+.logo .logo-main{font-weight:700}
+
+nav{display:flex;gap:18px;align-items:center}
+nav a{text-decoration:none;color:var(--text-dark);font-weight:600}
+
+/* mobile menu */
+.mobile-menu{display:none;flex-direction:column;gap:4px;cursor:pointer}
+.mobile-menu span{width:22px;height:2.5px;background:var(--text-dark);display:block;border-radius:2px;transition:transform .2s,opacity .15s}
+.mobile-menu.active span:nth-child(1){transform:translateY(6px) rotate(45deg)}
+.mobile-menu.active span:nth-child(2){opacity:0}
+.mobile-menu.active span:nth-child(3){transform:translateY(-6px) rotate(-45deg)}
+.mobile-nav{display:none;position:absolute;left:0;right:0;top:100%;background:var(--white);border-top:1px solid var(--border);padding:12px;box-shadow:0 10px 30px rgba(0,0,0,.06);max-height:70vh;overflow:auto}
+.mobile-nav a{display:block;padding:10px;border-radius:8px;color:var(--text-dark);text-decoration:none;margin-bottom:6px}
+
+/* Hero (top) */
+.hero{background-image:linear-gradient(180deg, rgba(0,0,0,0.14), rgba(0,0,0,0.06)), url("../Images/FeaturedP.png");background-size:cover;background-position:center;color:#fff;padding:56px 18px;text-align:center}
+.page-titles{max-width:900px;margin:0 auto}
+.page-titles h1{font-size:2rem;line-height:1.05;font-weight:800}
+.page-titles .subtitle{display:block;font-size:1rem;margin-top:8px;color:#e8f0ff}
+.hero-description{max-width:780px;margin:14px auto 0;color:#f3f7fb}
+
+/* Featured partner section: .heros */
+.heros{background:#fff;color:var(--text-dark);padding:48px 0}
+.hero-content{display:flex;gap:28px;align-items:center;justify-content:space-between;flex-wrap:wrap}
+.hero-text{flex:1 1 380px;min-width:260px}
+.hero-image-container{flex:1 1 380px;min-width:260px;display:flex;align-items:center;justify-content:center}
+.image-wrapper{width:100%;max-width:560px}
+.hero-image{width:100%;height:auto;border-radius:18px;display:block;object-fit:cover}
+
+.featured-main-title{font-size:1.6rem;font-weight:800;color:var(--text-dark);margin-bottom:10px}
+.featured-subtitle{font-size:1rem;color:var(--text-muted);margin-bottom:18px}
+
+.content-cards-container{display:flex;gap:16px;align-items:stretch}
+.content-card{background:#fff;border:1px solid var(--border);padding:18px;border-radius:14px;box-shadow:0 12px 30px rgba(0,0,0,0.05);flex:1}
+.content-card-title{font-weight:700;color:var(--primary-blue);margin-bottom:6px}
+.content-card-subtitle{font-size:1rem;margin-bottom:10px}
+.content-card-description{color:var(--text-muted);line-height:1.6}
+
+/* Reduced image height when large to avoid pushing content off-screen */
+.enhanced-image{max-height:420px;width:100%;object-fit:cover;border-radius:18px}
+
+/* Small utility classes */
+.text-center{text-align:center}
+
+/* Footer */
+.footer{background:#f6f8fa;padding:36px 18px}
+
+/* Accessibility */
+a:focus{outline:3px solid rgba(58,95,141,0.12);outline-offset:2px}
+
+/* Responsive adjustments */
+@media (max-width:1024px){
+  .page-titles h1{font-size:1.8rem}
+  .enhanced-image{max-height:360px}
+}
+
+@media (max-width:768px){
+  nav{display:none}
+  .mobile-menu{display:flex}
+  .hero{padding:40px 12px}
+  .featured-main-title{font-size:1.35rem}
+  .featured-subtitle{font-size:0.95rem}
+  .hero-content{flex-direction:column;align-items:stretch;gap:16px}
+  .image-wrapper{max-width:100%}
+  .enhanced-image{max-height:300px}
+  .content-cards-container{flex-direction:column}
+  .content-card{padding:14px}
+}
+
+@media (max-width:480px){
+  .page-titles h1{font-size:1.5rem}
+  .hero{padding:28px 10px}
+  .featured-main-title{font-size:1.15rem}
+  .featured-subtitle{font-size:0.9rem}
+  .enhanced-image{max-height:220px}
+  .content-card{padding:12px}
+}
+
+/* Small animations (simple and safe) */
+@keyframes slideInLeft {from{opacity:0;transform:translateX(-35px)}to{opacity:1;transform:none}}
+@keyframes slideInRight {from{opacity:0;transform:translateX(35px)}to{opacity:1;transform:none}}
+
+/* End of stylesheet */

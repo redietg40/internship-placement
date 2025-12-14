@@ -1,0 +1,242 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Intern Connect - Find Your Dream Internship</title>
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
+    />
+    <link rel="stylesheet" href="stylesFolders/internships.css" />
+  </head>
+  <body>
+    <!-- Header -->
+     
+      <!-- Breadcrumb Navigation -->
+      <nav class="breadcrumb-nav">
+        <a href="index.html" class="breadcrumb-link"> Home </a>
+        <span class="fas fa-chevron-right breadcrumb-separator"></span>
+         </a>
+        <span class="breadcrumb-current">Internships</span>
+      </nav>
+    <!-- Hero Section -->
+    <section class="hero">
+      <div class="container">
+        <h1>Search for your ideal work experience.</h1>
+        <p>
+          Connect with top companies and kickstart your career with the perfect
+          internship opportunity.
+        </p>
+        <div class="search-bar">
+          <input
+            type="text"
+            id="search-input"
+            placeholder="Search for internships, companies, or keywords..."
+          />
+          <button id="search-button">
+            <i class="fas fa-search"></i> Search
+          </button>
+        </div>
+      </div>
+    </section>
+
+    <!-- Main Content -->
+    <div class="container">
+      <div class="main-content">
+        <!-- Filters Sidebar -->
+        <div class="filters">
+          <h3>Filters</h3>
+
+          <div class="filter-group">
+            <h4>Status</h4>
+            <div class="filter-options">
+              <label>
+                <input type="radio" name="status" value="" checked />
+                <span class="radio-custom"></span>
+                All Statuses
+              </label>
+              <label>
+                <input type="radio" name="status" value="open" />
+                <span class="radio-custom"></span>
+                Open
+              </label>
+              <label>
+                <input type="radio" name="status" value="closed" />
+                <span class="radio-custom"></span>
+                Closed
+              </label>
+            </div>
+          </div>
+
+          <div class="filter-group">
+            <h4>Industry</h4>
+            <div class="filter-options">
+              <label>
+                <input type="checkbox" name="industry" value="technology" />
+                Technology
+              </label>
+              <label>
+                <input
+                  type="checkbox"
+                  name="industry"
+                  value="marketing"
+                  checked
+                />
+                Marketing
+              </label>
+              <label>
+                <input type="checkbox" name="industry" value="finance" />
+                Engineering
+              </label>
+              <label>
+                <input type="checkbox" name="industry" value="design" /> Design
+              </label>
+              <label>
+                <input type="checkbox" name="industry" value="healthcare" />
+                Healthcare
+              </label>
+            </div>
+          </div>
+
+          <div class="filter-group">
+            <h4>Location</h4>
+            <div class="filter-options">
+              <label>
+                <input
+                  type="checkbox"
+                  name="location"
+                  value="H9WP+75H, Bahir Dar"
+                />
+                H9WP+75H, Bahir Dar
+              </label>
+              <label>
+                <input
+                  type="checkbox"
+                  name="location"
+                  value="new-Kebele 02, Near Blue Nile Bridge Bahir Dar, Ethiopia"
+                  checked
+                />new-Kebele 02, Near Blue Nile Bridge Bahir Dar, Ethiopia
+              </label>
+              <label>
+                <input
+                  type="checkbox"
+                  name="location"
+                  value="Signal Mall 3rd Floor, Bahir Dar"
+                />
+                Signal Mall 3rd Floor, Bahir Dar
+              </label>
+              <label>
+                <input
+                  type="checkbox"
+                  name="location"
+                  value="Bahir Dar, Ethiopia"
+                />Bahir Dar ,Ethiopia
+              </label>
+            </div>
+          </div>
+
+          <div class="filter-group">
+            <h4>Duration</h4>
+            <div class="filter-options">
+              <label>
+                <input type="checkbox" name="duration" value="3-6" /> 3-6 months
+              </label>
+              <label>
+                <input type="checkbox" name="duration" value="2-6" /> 2-6 months
+              </label>
+              <label>
+                <input type="checkbox" name="duration" value="6+" /> 6+ months
+              </label>
+            </div>
+          </div>
+
+          <button id="apply-filters" class="btn btn-primary">
+            Apply Filters
+          </button>
+          <button id="reset-filters" class="btn btn-outline">
+            <i class="fas fa-redo-alt"></i> Reset Filters
+          </button>
+        </div>
+
+        <!-- Job Listings -->
+        <div class="job-listings">
+          <div class="section-title">
+            <h2>Available Internships</h2>
+            <select class="sort-select" id="sort-select">
+              <option value="newest">Sort by: Newest</option>
+              <option value="relevance">Sort by: Relevance</option>
+              <option value="salary">Sort by: Salary</option>
+            </select>
+          </div>
+
+          <div id="jobs-container">
+            <!-- Job cards will be dynamically inserted here -->
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Footer -->
+    <footer>
+      <div class="container">
+        <div class="footer-content">
+          <div class="footer-column">
+            <h3>Intern Connect</h3>
+            <p>
+              Connecting talented students with top companies for internship
+              opportunities worldwide.
+            </p>
+            <div class="social-links">
+              <a href="#"><i class="fab fa-facebook-f"></i></a>
+              <a href="#"><i class="fab fa-twitter"></i></a>
+              <a href="#"><i class="fab fa-instagram"></i></a>
+              <a href="#"><i class="fab fa-linkedin-in"></i></a>
+            </div>
+          </div>
+          <div class="footer-column">
+            <h3>For Students</h3>
+            <ul>
+              <li><a href="#">Browse Internships</a></li>
+              <li><a href="#">Career Resources</a></li>
+              <li><a href="#">Resume Builder</a></li>
+              <li><a href="#">Interview Prep</a></li>
+            </ul>
+          </div>
+          <div class="footer-column">
+            <h3>For Employers</h3>
+            <ul>
+              <li><a href="#">Post an Internship</a></li>
+              <li><a href="#">Search Candidates</a></li>
+              <li><a href="#">Pricing Plans</a></li>
+              <li><a href="#">Employer Resources</a></li>
+            </ul>
+          </div>
+          <div class="footer-column">
+            <h3>Contact Us</h3>
+            <ul>
+              <li><i class="fas fa-envelope"></i> support@internconnect.com</li>
+              <li><i class="fas fa-phone"></i> +1 (555) 123-4567</li>
+              <li>
+                <i class="fas fa-map-marker-alt"></i> 123 Innovation Blvd, San
+                Francisco, CA
+              </li>
+            </ul>
+          </div>
+        </div>
+        <div class="copyright">
+          <p>&copy; 2023 Intern Connect. All rights reserved.</p>
+        </div>
+      </div>
+    </footer>
+
+    <!-- Modal for Learn More -->
+    <div id="job-modal" class="modal">
+      <div class="modal-content">
+        <span class="close">&times;</span>
+        <div id="modal-body"></div>
+      </div>
+    </div>
+    <script src="scriptsFolder/internships.js"></script>
+  </body>
+</html>

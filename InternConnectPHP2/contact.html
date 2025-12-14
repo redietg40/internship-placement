@@ -1,0 +1,182 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Contact Us - InternConnect Ethiopia</title>
+    <link
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="stylesFolder/contact.css" />
+  </head>
+  <body>
+    <!-- Floating Particles Background -->
+    <div id="backgroundOverlay" class="background-overlay"></div>
+
+    <!-- Header -->
+    <header class="header">
+      <div class="header-container">
+        <nav class="breadcrumb-nav">
+          <a href="index.html" class="breadcrumb-link"> Home </a>
+          <span class="fas fa-chevron-right breadcrumb-separator">/</span>
+          <span class="breadcrumb-current">Contact</span>
+        </nav>
+      </div>
+    </header>
+
+    <!-- Main Content -->
+    <main class="main-content">
+      <div class="container">
+        <!-- Page Title -->
+        <div class="page-header">
+          <h1 class="page-title">Get in Touch</h1>
+          <p class="page-subtitle">
+            We'd love to hear from you. Send us a message and we'll respond as
+            soon as possible.
+          </p>
+        </div>
+
+        <!-- Contact Grid -->
+        <div class="contact-grid">
+          <!-- Contact Information -->
+          <div class="contact-info-section">
+            <div class="contact-info-card">
+              <h2 class="section-title">Contact Information</h2>
+
+              <div class="contact-items">
+                <div class="contact-item">
+                  <div class="contact-icon orange">
+                    <i class="fas fa-map-marker-alt"></i>
+                  </div>
+                  <div class="contact-details">
+                    <h3>Head Office</h3>
+                    <p>Addis Ababa, Ethiopia</p>
+                  </div>
+                </div>
+
+                <div class="contact-item">
+                  <div class="contact-icon green">
+                    <i class="fas fa-phone"></i>
+                  </div>
+                  <div class="contact-details">
+                    <h3>Customer Care</h3>
+                    <p>100 (Toll Free)</p>
+                  </div>
+                </div>
+
+                <div class="contact-item">
+                  <div class="contact-icon blue">
+                    <i class="fas fa-envelope"></i>
+                  </div>
+                  <div class="contact-details">
+                    <h3>Email</h3>
+                    <p>info@safaricom.et</p>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <!-- Additional Info Card -->
+            <div class="info-card">
+              <h3>Why Choose InternConnect?</h3>
+              <ul>
+                <li>• Bridging Dreams & Opportunities</li>
+                <li>• Professional Career Guidance</li>
+                <li>• Extensive Network of Partners</li>
+                <li>• 24/7 Customer Support</li>
+              </ul>
+            </div>
+          </div>
+
+          <!-- Contact Form -->
+          <div class="contact-form-section">
+            <div class="contact-form-card">
+              <h2 class="section-title">Send us a Message</h2>
+
+              <form id="contactForm" class="contact-form">
+                <div class="form-group">
+                  <label for="name">Your Name</label>
+                  <input
+                    type="text"
+                    id="name"
+                    name="name"
+                    required
+                    placeholder="Enter your full name"
+                  />
+                </div>
+
+                <div class="form-group">
+                  <label for="email">Your Email</label>
+                  <input
+                    type="email"
+                    id="email"
+                    name="email"
+                    required
+                    placeholder="Enter your email address"
+                  />
+                </div>
+
+                <div class="form-group">
+                  <label for="subject">Subject</label>
+                  <input
+                    type="text"
+                    id="subject"
+                    name="subject"
+                    required
+                    placeholder="What's this about?"
+                  />
+                </div>
+
+                <div class="form-group">
+                  <label for="message">Your Message</label>
+                  <textarea
+                    id="message"
+                    name="message"
+                    rows="5"
+                    required
+                    placeholder="Tell us how we can help you..."
+                  ></textarea>
+                </div>
+
+                <button type="submit" class="submit-btn" id="submitBtn">
+                  <i class="fas fa-paper-plane"></i>
+                  Send Message
+                </button>
+              </form>
+
+              <!-- Success Message -->
+              <div
+                id="successMessage"
+                class="success-message"
+                style="display: none"
+              >
+                <div class="success-content">
+                  <div class="success-icon">
+                    <i class="fas fa-check"></i>
+                  </div>
+                  <p>
+                    Thank you! Your message has been sent successfully. We'll
+                    get back to you soon!
+                  </p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </main>
+
+    <!-- Footer -->
+    <footer class="footer">
+      <div class="footer-container">
+        <p>
+          &copy; 2025 InternConnect Ethiopia - Bridging Dreams & Opportunities.
+          All rights reserved.
+        </p>
+      </div>
+    </footer>
+
+    <script src="contact.js"></script>
+  </body>
+</html>
