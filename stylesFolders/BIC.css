@@ -92,6 +92,9 @@ html, body {
 [data-theme="dark"] .hero-title {
   color: var(--white);
 }
+[data-theme="dark"] .section-description {
+  color: var(--white);
+}
 
 [data-theme="dark"] .hero-description {
   color: var(--gray-300);
